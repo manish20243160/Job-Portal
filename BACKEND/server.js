@@ -22,13 +22,15 @@ app.use(
   })
 );
 
-// Connect Database
-connectDB();
-
 // Middleware
 app.use(express.json());
 
-// Serve static files from uploads
+// 👉 ADD THIS (important for testing)
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
+
+// Serve static files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
@@ -42,6 +44,9 @@ app.use("/api/analytics", analyticsRoutes);
 // Server Port
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
