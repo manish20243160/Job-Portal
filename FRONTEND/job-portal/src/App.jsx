@@ -9,7 +9,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Signup from "./pages/Auth/Signup";
-import Login from "./pages/Auth/login";
+import Login from "./pages/Auth/Login";
 
 import JobSeekerDashboard from "./pages/JobSeeker/JobSeekerDashboard";
 import FindJobs from "./pages/JobSeeker/FindJobs";
